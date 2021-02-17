@@ -50,11 +50,8 @@ int main() {
   
   // // checking volume equalization:
 
-  draw( T , particle_file     );
-  draw_diagram( T , diagram_file );  
-  return 0;
-
-#ifdef NO_DEF  // stop here
+  //  draw( T , particle_file     );
+  //  draw_diagram( T , diagram_file );  
 
   
   // FT dd0, dddt;
@@ -87,12 +84,15 @@ int main() {
   
   
   // // testing .-
-  // set_pressure( T );
-  // volumes( T );
-  // algebra.test_operators();
-  // draw( T , particle_file     );
-  // return 0;
+   set_pressure( T );
+   volumes( T );
+   algebra.test_operators();
+   draw( T , particle_file );
+   return 0;
   
+
+#ifdef NO_DEF  // stop here
+
 
   // Init loop!
   

@@ -28,31 +28,16 @@ class linear {
  public:  // constructor
  linear(Triangulation& TT) : T(TT) {}
 
-  void fill_Delta();
-  void fill_Delta_DD( const FT dt = 0);
+  void fill_diff_matrices();
 
   void solve_for_weights(  const FT dt = 0 );
-  void solve_for_weights_centroid(  const FT dt = 0 );
-  void solve_for_moments( );
-  void w_equation( );
-  void w_equation2( );
-  void w_equation3( );
   void p_equation(const FT dt , const bool ws = false );
-  void p_equation_s(const FT dt );
-  void p_equation_from_s(  const FT dt );
-  void s_equation_from_p(  const FT dt );
-  void s_equation(const FT dt );
-  void s_equation_p(const FT dt );
+
   void u_star( void );
   void reset_p( void );
-  void reset_s( void );
+
   void u_add_press_grad( const FT dt ) ;
-  void om_add_press_grad( const FT dt ) ;
-  void u_add_angular();
-  void u_add_s_grad( const FT dt ) ;
-  void u_add_w_grad( const FT dt ) ;
-  void u_add_grads( const FT dt ) ;
-  void u_add_press_grad_MM_w( const FT dt );
+
   void u_add_spring_force( const FT kdt );
 
   void DD_scalar_vfield(const vfield_list::take from , const sfield_list::take to );
@@ -68,6 +53,8 @@ class linear {
 
   void dd2_stats( void ) ;
 
+  void test_operators( void );
+  
   //  Vector_2 values_at_v(const Point& p0, const vfield_list::take v_field) ;
 
 private:
@@ -79,14 +66,8 @@ private:
   typedef Eigen::Triplet<double> triplet;
 
   SpMat Delta;
-  SpMat GG;
   SpMat DDx, DDy;
   SpMat LL;
-  SpMat MMx, MMy;
-  SpMat NN;
-  SpMat LN , NL;
-
-  SpMat EE;
 
   
   VectorXd field_to_vctr(const sfield_list::take sf );

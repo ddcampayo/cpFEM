@@ -40,23 +40,24 @@ void linear::copy(const sfield_list::take from, sfield_list::take to  ) {
 
 
 
-// void linear::test_operators( void ) {
+void linear::test_operators( void ) {
 
-//   // this makes u = grad p, for debugging purposes
+  // this makes u = grad p, for debugging purposes
 
-//   fill_Delta_DD();
+  fill_Delta_DD();
 
-//   VectorXd gradPx,gradPy;
+  VectorXd gradPx,gradPy;
 
-//   DD_times_sfield( sfield_list::p  ,  gradPx, gradPy);
+  DD_times_sfield( sfield_list::p  ,  gradPx, gradPy);
 
-//   VectorXd vol  = field_to_vctr( sfield_list::Vvol );
+  VectorXd vol  = field_to_vctr( sfield_list::Vvol );
 
-//   VectorXd U_x, U_y;
+  VectorXd U_x, U_y;
 
-//   U_x = gradPx.array() / vol.array()  ;
-//   U_y = gradPy.array() / vol.array() ;
+  U_x = gradPx.array() / vol.array()  ;
+  U_y = gradPy.array() / vol.array() ;
 
-//   vctrs_to_vfield( U_x, U_y , vfield_list::U );
-  
-// }
+  vctrs_to_vfield( U_x, U_y , vfield_list::U );
+
+  return;
+}
