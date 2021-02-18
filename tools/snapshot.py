@@ -35,8 +35,9 @@ for n in range( init_t ,2000000+skip,skip):
     Vvol=dt[:,3]
     Dvol=dt[:,4]
     w=dt[:,5];
-#    vx=dt[:,5]; vym=dt[:,6];
+    vx=dt[:,6]; vy=dt[:,7];
     p=dt[:,10]
+    p0=dt[:,11]
 
     d2=dt[:,11];
 
@@ -46,7 +47,8 @@ for n in range( init_t ,2000000+skip,skip):
     #    r = np.sqrt( x**2 + y**2 )
     # plt.plot( r , p , 'o' )
 #    plt.scatter( x , y , 80, c= Dvol)
-    plt.scatter( x , y , c=p )
+    plt.scatter( x , y , c=p0 )
+    plt.colorbar()
 #    plt.scatter( x , y , 80, c= vol , vmin=0.0022, vmax=0.0028 )
 #    plt.scatter( x , y , 10, c=w )
 #    plt.scatter( x , y , 10, c=I )

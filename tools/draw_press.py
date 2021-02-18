@@ -57,7 +57,7 @@ rm = np.argmax(r)
 
 p -= p[ rm ] #  np.min( p )
 
-plt.plot( r , p , 'o' )
+plt.plot( x , p , 'o' )
 
 def pp(r) : # analytic solution for Gresho's vortex pressure
     r0 = 0.2

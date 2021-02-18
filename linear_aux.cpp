@@ -74,13 +74,11 @@ void linear::test_Poisson( void ) {
   fill_diff_matrices();
 
   VectorXd source  = field_to_vctr( sfield_list::p );
-
-  VectorXd pp0 =  LL_solver.solve( source );
-
   VectorXd vol  = field_to_vctr( sfield_list::Dvol );
+  VectorXd vol_source = source.array() * vol.array() ;
 
-  VectorXd p0 = pp0.array() / vol.array()  ;
-  
+  VectorXd p0 =  LL_solver.solve( vol_source );
+
   vctr_to_field( p0 , sfield_list::p0  ) ;
 
   return;

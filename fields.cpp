@@ -36,7 +36,21 @@ FT cut(const FT x,const FT y ) {
 
 }
 
+FT sinx(const FT x,const FT y ) {
 
+  const FT amp = 1;
+
+  return amp*std::sin( 2 * M_PI * x );
+
+}
+
+FT sinsin(const FT x,const FT y ) {
+
+  const FT amp = 1;
+
+  return amp*std::sin( 2 * M_PI * x )*std::sin( 2 * M_PI * y );
+
+}
 
 void set_pressure(Triangulation& T) {
 
@@ -48,7 +62,9 @@ void set_pressure(Triangulation& T) {
     FT y=vit->point().y();
 
     //    vit->p.set( parabolla(x,y) );
-    vit->p.set( cut(x,y) );
+//    vit->p.set( cut(x,y) );
+//    vit->p.set( sinx(x,y) );
+    vit->p.set( sinsin(x,y) );
 
   }
 

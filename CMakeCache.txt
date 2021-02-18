@@ -38,8 +38,8 @@ CGAL_CTEST_DISPLAY_MEM_AND_TIME:BOOL=OFF
 //Activate the CGAL developers mode. See https://github.com/CGAL/cgal/wiki/CGAL_DEV_MODE
 CGAL_DEV_MODE:BOOL=OFF
 
-//No help, variable specified on the command line.
-CGAL_DIR:UNINITIALIZED=/home/daniel/CGAL-5.0.2
+//The directory containing a CMake configuration file for CGAL.
+CGAL_DIR:PATH=/usr/lib64/cmake/CGAL
 
 //If set, the ctest command will not skip the tests of the draw
 // functions.
@@ -63,7 +63,7 @@ CMAKE_BUILD_TYPE:STRING=Release
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_COMPILER:STRING=/usr/bin/c++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -89,7 +89,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:STRING=/usr/bin/cc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -292,11 +292,17 @@ Boost_DEBUG-ADVANCED:INTERNAL=1
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CGAL_Boost_USE_STATIC_LIBS
 CGAL_Boost_USE_STATIC_LIBS-ADVANCED:INTERNAL=1
-CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM
+CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM;cpFEM
+//Directory containing the GraphicsView package
+CGAL_GRAPHICSVIEW_PACKAGE_DIR:INTERNAL=/usr/include/CGAL/
 //CGAL library is configured to use GMP
 CGAL_USE_GMP:INTERNAL=TRUE
 //CGAL library is configured to use MPFR
 CGAL_USE_MPFR:INTERNAL=TRUE
+//Result of TRY_COMPILE
+CGAL_test_cpp_version_COMPILE_RES:INTERNAL=TRUE
+//Result of TRY_RUN
+CGAL_test_cpp_version_RUN_RES:INTERNAL=0
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -308,7 +314,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=19
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
