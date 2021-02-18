@@ -331,6 +331,60 @@ linear_fill_diff_matrices.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_fill_diff_matrices.cpp.s
 .PHONY : linear_fill_diff_matrices.cpp.s
 
+linear_p_equation.o: linear_p_equation.cpp.o
+
+.PHONY : linear_p_equation.o
+
+# target to build an object file
+linear_p_equation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_p_equation.cpp.o
+.PHONY : linear_p_equation.cpp.o
+
+linear_p_equation.i: linear_p_equation.cpp.i
+
+.PHONY : linear_p_equation.i
+
+# target to preprocess a source file
+linear_p_equation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_p_equation.cpp.i
+.PHONY : linear_p_equation.cpp.i
+
+linear_p_equation.s: linear_p_equation.cpp.s
+
+.PHONY : linear_p_equation.s
+
+# target to generate assembly for a file
+linear_p_equation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_p_equation.cpp.s
+.PHONY : linear_p_equation.cpp.s
+
+linear_u_add_spring_force.o: linear_u_add_spring_force.cpp.o
+
+.PHONY : linear_u_add_spring_force.o
+
+# target to build an object file
+linear_u_add_spring_force.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_u_add_spring_force.cpp.o
+.PHONY : linear_u_add_spring_force.cpp.o
+
+linear_u_add_spring_force.i: linear_u_add_spring_force.cpp.i
+
+.PHONY : linear_u_add_spring_force.i
+
+# target to preprocess a source file
+linear_u_add_spring_force.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_u_add_spring_force.cpp.i
+.PHONY : linear_u_add_spring_force.cpp.i
+
+linear_u_add_spring_force.s: linear_u_add_spring_force.cpp.s
+
+.PHONY : linear_u_add_spring_force.s
+
+# target to generate assembly for a file
+linear_u_add_spring_force.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_u_add_spring_force.cpp.s
+.PHONY : linear_u_add_spring_force.cpp.s
+
 linear_vect_to_field.o: linear_vect_to_field.cpp.o
 
 .PHONY : linear_vect_to_field.o
@@ -357,6 +411,33 @@ linear_vect_to_field.s: linear_vect_to_field.cpp.s
 linear_vect_to_field.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_vect_to_field.cpp.s
 .PHONY : linear_vect_to_field.cpp.s
+
+linear_w_equation.o: linear_w_equation.cpp.o
+
+.PHONY : linear_w_equation.o
+
+# target to build an object file
+linear_w_equation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_w_equation.cpp.o
+.PHONY : linear_w_equation.cpp.o
+
+linear_w_equation.i: linear_w_equation.cpp.i
+
+.PHONY : linear_w_equation.i
+
+# target to preprocess a source file
+linear_w_equation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_w_equation.cpp.i
+.PHONY : linear_w_equation.cpp.i
+
+linear_w_equation.s: linear_w_equation.cpp.s
+
+.PHONY : linear_w_equation.s
+
+# target to generate assembly for a file
+linear_w_equation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_w_equation.cpp.s
+.PHONY : linear_w_equation.cpp.s
 
 move.o: move.cpp.o
 
@@ -469,9 +550,18 @@ help:
 	@echo "... linear_fill_diff_matrices.o"
 	@echo "... linear_fill_diff_matrices.i"
 	@echo "... linear_fill_diff_matrices.s"
+	@echo "... linear_p_equation.o"
+	@echo "... linear_p_equation.i"
+	@echo "... linear_p_equation.s"
+	@echo "... linear_u_add_spring_force.o"
+	@echo "... linear_u_add_spring_force.i"
+	@echo "... linear_u_add_spring_force.s"
 	@echo "... linear_vect_to_field.o"
 	@echo "... linear_vect_to_field.i"
 	@echo "... linear_vect_to_field.s"
+	@echo "... linear_w_equation.o"
+	@echo "... linear_w_equation.i"
+	@echo "... linear_w_equation.s"
 	@echo "... move.o"
 	@echo "... move.i"
 	@echo "... move.s"

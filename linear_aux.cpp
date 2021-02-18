@@ -5,8 +5,6 @@
 
 
 
-
-
 void linear::u_star( void ) {
   VectorXd usx, usy;
   

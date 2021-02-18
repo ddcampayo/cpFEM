@@ -20,7 +20,7 @@ int main() {
   const int init_iters = 0;
   const FT  init_tol2 = 1e-3;
 
-  const int inner_iters= 0;
+  const int inner_iters= 10;
   const FT  inner_tol  = 1e-5;
 
   const  FT total_time = 2 * M_PI * 0.2 ; // one whole turn
@@ -44,9 +44,7 @@ int main() {
   algebra.copy( sfield_list::Dvol,  sfield_list::Dvol0);
   algebra.copy( sfield_list::Vvol,  sfield_list::Vvol0);
 
-
   set_vels_Gresho( T );
-
   
   // // testing .-
    // algebra.test_gradient();
@@ -88,14 +86,30 @@ int main() {
   set_vels_Gresho( T );
 
   volumes( T ); 
-  algebra.copy( sfield_list::vol,  sfield_list::vol0);
+  algebra.copy( sfield_list::Dvol,  sfield_list::Dvol0);
+  algebra.copy( sfield_list::Vvol,  sfield_list::Vvol0);
   
   FT d0;
   FT dt=0.001;
 
+  cout << "Time step, dt = ";
   cin >> dt ;
+  cout << endl << dt << endl;
 
   simu.set_dt( dt );
+
+  FT spring_to_dt;
+  cout << "Spring period / dt  = ";
+  cin >> spring_to_dt;
+  cout << endl << spring_to_dt << endl;
+
+  // 31 dt is the value for G&M first simulation,
+  // "Beltrami flow in the square"
+  FT spring_period = spring_to_dt * dt;
+  //  FT spring_period = 80 * dt;
+  FT omega = 2 * M_PI /  spring_period ;
+
+  FT spring = omega*omega; // factor that appears in the spring force
 
   // half-step (for e.g. leapfrog)
   FT dt2 = dt / 2.0 ;
@@ -159,7 +173,7 @@ int main() {
 
       volumes( T ); 
       
-      algebra.fill_Delta_DD();
+      algebra.fill_diff_matrices();
 
       // // whole step, special 1st time
       // if( simu.current_step() == 1 ){
@@ -181,6 +195,12 @@ int main() {
       algebra.p_equation( dt ); 
 
       algebra.u_add_press_grad( dt );//2 );
+
+      algebra.w_equation( dt ); 
+      copy_weights( T ) ;
+
+      algebra.u_add_spring_force( spring*dt );
+
       // algebra.u_add_press_grad( dt2 );//2 );
       // algebra.u_add_spring_force( 1.0 / dt2 );
 
@@ -222,14 +242,8 @@ int main() {
     //    algebra.u_add_press_grad( 0 );
 
 
-    //displ = move( T , dt , d0 );
+    displ = move( T , dt , d0 );
 
-    // set particles at centers of mass
-
-    volumes( T ); 
-      
-    move_from_centroid( T , dt);
-    
     volumes( T ); 
       
     //    algebra.fill_Delta_DD();
@@ -264,8 +278,5 @@ int main() {
   log_file.close();
 
   return 0;
-
-
-#endif
 
 }

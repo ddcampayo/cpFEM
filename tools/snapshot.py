@@ -47,7 +47,7 @@ for n in range( init_t ,2000000+skip,skip):
     #    r = np.sqrt( x**2 + y**2 )
     # plt.plot( r , p , 'o' )
 #    plt.scatter( x , y , 80, c= Dvol)
-    plt.scatter( x , y , c=p0 )
+    plt.scatter( x , y , c=p )
     plt.colorbar()
 #    plt.scatter( x , y , 80, c= vol , vmin=0.0022, vmax=0.0028 )
 #    plt.scatter( x , y , 10, c=w )

@@ -30,8 +30,8 @@ class linear {
 
   void fill_diff_matrices();
 
-  void solve_for_weights(  const FT dt = 0 );
-  void p_equation(const FT dt , const bool ws = false );
+  void w_equation(  const FT dt = 0 );
+  void p_equation(const FT dt  );
 
   void u_star( void );
   void reset_p( void );

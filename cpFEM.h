@@ -91,21 +91,24 @@ void backup( Triangulation& Tp );
 
 void set_pressure(Triangulation& T) ;
 
+FT move(Triangulation& Tp, const FT dt , FT& dd0 ) ;
+void copy_weights( Triangulation& Tp );
+void move_weights( Triangulation& Tp );
+
+FT L2_vel_Gresho( Triangulation& T) ;
+FT kinetic_E( Triangulation& T) ;
+
+
 // FT lloyds(Triangulation& T) ;
 
-// FT move(Triangulation& Tp, const FT dt , FT& dd0 ) ;
+
 // 
-// void copy_weights( Triangulation& Tp );
-// void move_weights( Triangulation& Tp );
 // void update_full_vel(  Triangulation& Tp );
 // FT move_from_centroid(Triangulation& T, const FT dt );
 
 // void set_vels_rotating(Triangulation& T);
 // void set_vels_Lamb_Oseen(Triangulation& T) ;
 //
-
-// FT L2_vel_Gresho( Triangulation& T) ;
-// FT kinetic_E( Triangulation& T) ;
 
 // Vector_2 values_at_v(const Triangulation& T , const Point& p0, const vfield_list::take v_field) ;
 

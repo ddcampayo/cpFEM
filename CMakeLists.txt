@@ -71,6 +71,10 @@ add_executable( cpFEM
 	linear_vect_to_field.cpp
 	linear_fill_diff_matrices.cpp
 	linear_diff_operators.cpp
+	linear_p_equation.cpp
+	move.cpp
+	linear_u_add_spring_force.cpp
+	linear_w_equation.cpp
 )
 
 
