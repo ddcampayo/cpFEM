@@ -20,7 +20,7 @@ int main() {
   const int init_iters = 0;
   const FT  init_tol2 = 1e-3;
 
-  const int inner_iters= 10;
+  const int inner_iters= 0;
   const FT  inner_tol  = 1e-5;
 
   const  FT total_time = 2 * M_PI * 0.2 ; // one whole turn
@@ -48,83 +48,44 @@ int main() {
   set_vels_Gresho( T );
 
   
-  // // checking volume equalization:
-
-  //  draw( T , particle_file     );
-  //  draw_diagram( T , diagram_file );  
-
-  
-  // FT dd0, dddt;
-
-  // cin >> dddt ;
-
-  // FT ddispl = move( T , dddt , dd0 );
-
-  // simu.next_step();
-
-  // volumes( T ); 
-
-  // draw( T , particle_file     );
-  // draw_diagram( T , diagram_file );  
-
-  // algebra.solve_for_moments();
-  // //algebra.solve_for_weights();
-
-  // copy_weights( T ) ;
-
-  // simu.next_step();
-
-  // draw( T , particle_file     );
-  // draw_diagram( T , diagram_file );  
-  
-  // return 0;
-
-
-
-  
-  
   // // testing .-
-   algebra.test_gradient();
-   algebra.test_Poisson();
+   // algebra.test_gradient();
+   // algebra.test_Poisson();
 
-   draw( T , particle_file );
-   draw_diagram( T , diagram_file );  
-   return 0;
+   // draw( T , particle_file );
+   // draw_diagram( T , diagram_file );  
+   // return 0;
   
-
-#ifdef NO_DEF  // stop here
-
 
   // Init loop!
   
-  int iter=1;
+  // int iter=1;
 
-  for( ; iter < init_iters ; ++iter) {
+  // for( ; iter < init_iters ; ++iter) {
   
-    volumes( T ); 
+  //   volumes( T ); 
 
-    copy_weights( T ) ;
+  //   copy_weights( T ) ;
 
-    //    algebra.solve_for_weights();
+  //   //    algebra.solve_for_weights();
 
-    FT dd = lloyds( T ) ;
+  //   FT dd = lloyds( T ) ;
 
-    cout << " init loop , iter " << iter << " dd = " << dd << endl;
-    if( dd < init_tol2) break;
+  //   cout << " init loop , iter " << iter << " dd = " << dd << endl;
+  //   if( dd < init_tol2) break;
 
-  }
+  // }
 
   // volumes( T ); 
   // simu.set_dt( 0 );  
   // draw( T , particle_file     );
   // draw_diagram( T , diagram_file );  
   // return 0;
- 
+  //  cout << "Init loop converged in " << iter << " steps " << endl;
+  
   copy_weights( T ) ;
 
-  cout << "Init loop converged in " << iter << " steps " << endl;
-  
-  //  set_vels_Gresho( T );
+  set_vels_Gresho( T );
 
   volumes( T ); 
   algebra.copy( sfield_list::vol,  sfield_list::vol0);
