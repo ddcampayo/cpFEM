@@ -9,5 +9,6 @@ main_data
 << vit->U.val() << "  "   //   6,7
 << vit->Ustar.val() << "  "   //  8,9
 << vit->p.val() << "  "   //  10
-<< vit->dd2.val() << "  "   //  11
+<< vit->p0.val() << "  "   //  11
+<< vit->dd2.val() << "  "   //  12
 << endl;

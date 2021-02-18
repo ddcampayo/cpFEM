@@ -40,20 +40,20 @@ class linear {
 
   void u_add_spring_force( const FT kdt );
 
-  void DD_scalar_vfield(const vfield_list::take from , const sfield_list::take to );
-  VectorXd DD_scalar_vfield(const vfield_list::take from );
-  VectorXd MM_scalar_vfield(const vfield_list::take from );
-  void DD_times_sfield(const sfield_list::take from ,
-		       VectorXd& Dx,VectorXd& Dy);
-  void MM_times_sfield(const sfield_list::take from ,
-		       VectorXd& Dx,VectorXd& Dy);
-  VectorXd Delta_times_sfield(const sfield_list::take from );
+  void divergence(const vfield_list::take from , const sfield_list::take to );
+  VectorXd divergence(const vfield_list::take from );
+
+  void gradient(const sfield_list::take from ,
+		VectorXd& Dx,VectorXd& Dy);
+
+  VectorXd Delta_laplacian(const sfield_list::take from );
 
   void copy(const sfield_list::take from, sfield_list::take to  );
 
   void dd2_stats( void ) ;
 
-  void test_operators( void );
+  void test_gradient( void );
+  void test_Poisson( void );
   
   //  Vector_2 values_at_v(const Point& p0, const vfield_list::take v_field) ;
 

@@ -32,7 +32,7 @@ dt=np.loadtxt(path + n +'/particles.dat')
 x=dt[:,0]; y=dt[:,1];
 #    vol=dt[:,3]
 #w=dt[:,4];
-vx=dt[:,5]; vy=dt[:,6];
+vx=dt[:,6]; vy=dt[:,7];
 #p=dt[:,9] / Delta_t**2
 #  s=dt[:,10]
 #  I=dt[:,11];

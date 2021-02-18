@@ -14,7 +14,7 @@
 
 #include"linear.h"
 
-void linear::fill_diff_matrices( const FT dt ) {
+void linear::fill_diff_matrices( void ) {
 
   //  std::cout << " Filling Delta _and_ capital D matrices" << std::endl;
 
@@ -186,19 +186,6 @@ void linear::fill_diff_matrices( const FT dt ) {
   
   VectorXd vol  = field_to_vctr( sfield_list::Dvol ) ;
   VectorXd inv_vol  = 1.0 / vol.array() ;
-
-
-  // regular.-
-  // LL =
-  //   - DDx * inv_vol.asDiagonal() * DDx.transpose()
-  //   - DDy * inv_vol.asDiagonal() * DDy.transpose();
-
-  // rotation.-
-
-
-  VectorXd x2 = x.array()*x.array();
-  VectorXd y2 = y.array()*y.array();
-  VectorXd xy = x.array()*y.array();
 
   LL =
     - DDx * inv_vol.asDiagonal() * DDx.transpose()

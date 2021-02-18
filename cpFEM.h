@@ -89,6 +89,7 @@ void number(Triangulation& T);
 void set_vels_Gresho(Triangulation& T) ;
 void backup( Triangulation& Tp );
 
+void set_pressure(Triangulation& T) ;
 
 // FT lloyds(Triangulation& T) ;
 
@@ -102,7 +103,7 @@ void backup( Triangulation& Tp );
 // void set_vels_rotating(Triangulation& T);
 // void set_vels_Lamb_Oseen(Triangulation& T) ;
 //
-// void set_pressure(Triangulation& T) ;
+
 // FT L2_vel_Gresho( Triangulation& T) ;
 // FT kinetic_E( Triangulation& T) ;
 

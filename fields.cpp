@@ -14,13 +14,28 @@ FT parabolla(const FT x,const FT y ) {
 
   if(  r > cut  )
     return 0 ;
-  else {
-
+  else
     return pre * r2  ;
 
-  }
 
 }
+
+FT cut(const FT x,const FT y ) {
+
+  const FT cut = 0.4;
+  const FT amp = 1;
+
+  FT r2= x*x + y*y;
+
+  FT r = std::sqrt(r2);
+
+  if(  r > cut  )
+    return 0 ;
+  else
+    return amp;
+
+}
+
 
 
 void set_pressure(Triangulation& T) {
@@ -32,7 +47,8 @@ void set_pressure(Triangulation& T) {
     FT x=vit->point().x();
     FT y=vit->point().y();
 
-    vit->p.set( parabolla(x,y) );
+    //    vit->p.set( parabolla(x,y) );
+    vit->p.set( cut(x,y) );
 
   }
 

@@ -40,17 +40,19 @@ void linear::copy(const sfield_list::take from, sfield_list::take to  ) {
 
 
 
-void linear::test_operators( void ) {
+void linear::test_gradient( void ) {
 
   // this makes u = grad p, for debugging purposes
+  set_pressure( T );
+  volumes( T );
 
-  fill_Delta_DD();
+  fill_diff_matrices();
 
   VectorXd gradPx,gradPy;
 
-  DD_times_sfield( sfield_list::p  ,  gradPx, gradPy);
+  gradient( sfield_list::p  ,  gradPx, gradPy);
 
-  VectorXd vol  = field_to_vctr( sfield_list::Vvol );
+  VectorXd vol  = field_to_vctr( sfield_list::Dvol );
 
   VectorXd U_x, U_y;
 
@@ -60,4 +62,27 @@ void linear::test_operators( void ) {
   vctrs_to_vfield( U_x, U_y , vfield_list::U );
 
   return;
+}
+
+void linear::test_Poisson( void ) {
+
+  // this makes p0 = lapl^-1 p, for debugging purposes
+
+  set_pressure( T );
+  volumes( T );
+
+  fill_diff_matrices();
+
+  VectorXd source  = field_to_vctr( sfield_list::p );
+
+  VectorXd pp0 =  LL_solver.solve( source );
+
+  VectorXd vol  = field_to_vctr( sfield_list::Dvol );
+
+  VectorXd p0 = pp0.array() / vol.array()  ;
+  
+  vctr_to_field( p0 , sfield_list::p0  ) ;
+
+  return;
+  
 }

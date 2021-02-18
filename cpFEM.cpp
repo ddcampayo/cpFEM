@@ -84,10 +84,11 @@ int main() {
   
   
   // // testing .-
-   set_pressure( T );
-   volumes( T );
-   algebra.test_operators();
+   algebra.test_gradient();
+   algebra.test_Poisson();
+
    draw( T , particle_file );
+   draw_diagram( T , diagram_file );  
    return 0;
   
 

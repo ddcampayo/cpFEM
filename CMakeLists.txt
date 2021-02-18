@@ -58,7 +58,7 @@ include_directories( ${CHOLMOD_INCLUDES})
 # Creating entries for target: pPart
 # ############################
 
-add_executable( c_pFEM
+add_executable( cpFEM
 	cpFEM.cpp
 	cpFEM.h
 	volumes.cpp
@@ -69,11 +69,13 @@ add_executable( c_pFEM
 	draw.cpp
 	linear_aux.cpp
 	linear_vect_to_field.cpp
+	linear_fill_diff_matrices.cpp
+	linear_diff_operators.cpp
 )
 
 
-add_to_cached_list( CGAL_EXECUTABLE_TARGETS c_pFEM )
+add_to_cached_list( CGAL_EXECUTABLE_TARGETS cpFEM )
 
 # Link the executable to CGAL and third-party libraries
-target_link_libraries( c_pFEM  ${CGAL_LIBRARIES} ${CGAL_3RD_PARTY_LIBRARIES} )
+target_link_libraries( cpFEM  ${CGAL_LIBRARIES} ${CGAL_3RD_PARTY_LIBRARIES} )
 

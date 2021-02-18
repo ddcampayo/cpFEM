@@ -130,17 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named c_pFEM
+# Target rules for targets named cpFEM
 
 # Build rule for target.
-c_pFEM: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c_pFEM
-.PHONY : c_pFEM
+cpFEM: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cpFEM
+.PHONY : cpFEM
 
 # fast build rule for target.
-c_pFEM/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/build
-.PHONY : c_pFEM/fast
+cpFEM/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/build
+.PHONY : cpFEM/fast
 
 cpFEM.o: cpFEM.cpp.o
 
@@ -148,7 +148,7 @@ cpFEM.o: cpFEM.cpp.o
 
 # target to build an object file
 cpFEM.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/cpFEM.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/cpFEM.cpp.o
 .PHONY : cpFEM.cpp.o
 
 cpFEM.i: cpFEM.cpp.i
@@ -157,7 +157,7 @@ cpFEM.i: cpFEM.cpp.i
 
 # target to preprocess a source file
 cpFEM.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/cpFEM.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/cpFEM.cpp.i
 .PHONY : cpFEM.cpp.i
 
 cpFEM.s: cpFEM.cpp.s
@@ -166,7 +166,7 @@ cpFEM.s: cpFEM.cpp.s
 
 # target to generate assembly for a file
 cpFEM.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/cpFEM.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/cpFEM.cpp.s
 .PHONY : cpFEM.cpp.s
 
 create.o: create.cpp.o
@@ -175,7 +175,7 @@ create.o: create.cpp.o
 
 # target to build an object file
 create.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/create.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/create.cpp.o
 .PHONY : create.cpp.o
 
 create.i: create.cpp.i
@@ -184,7 +184,7 @@ create.i: create.cpp.i
 
 # target to preprocess a source file
 create.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/create.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/create.cpp.i
 .PHONY : create.cpp.i
 
 create.s: create.cpp.s
@@ -193,7 +193,7 @@ create.s: create.cpp.s
 
 # target to generate assembly for a file
 create.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/create.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/create.cpp.s
 .PHONY : create.cpp.s
 
 draw.o: draw.cpp.o
@@ -202,7 +202,7 @@ draw.o: draw.cpp.o
 
 # target to build an object file
 draw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/draw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/draw.cpp.o
 .PHONY : draw.cpp.o
 
 draw.i: draw.cpp.i
@@ -211,7 +211,7 @@ draw.i: draw.cpp.i
 
 # target to preprocess a source file
 draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/draw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/draw.cpp.i
 .PHONY : draw.cpp.i
 
 draw.s: draw.cpp.s
@@ -220,7 +220,7 @@ draw.s: draw.cpp.s
 
 # target to generate assembly for a file
 draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/draw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/draw.cpp.s
 .PHONY : draw.cpp.s
 
 fields.o: fields.cpp.o
@@ -229,7 +229,7 @@ fields.o: fields.cpp.o
 
 # target to build an object file
 fields.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/fields.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/fields.cpp.o
 .PHONY : fields.cpp.o
 
 fields.i: fields.cpp.i
@@ -238,7 +238,7 @@ fields.i: fields.cpp.i
 
 # target to preprocess a source file
 fields.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/fields.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/fields.cpp.i
 .PHONY : fields.cpp.i
 
 fields.s: fields.cpp.s
@@ -247,7 +247,7 @@ fields.s: fields.cpp.s
 
 # target to generate assembly for a file
 fields.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/fields.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/fields.cpp.s
 .PHONY : fields.cpp.s
 
 linear_aux.o: linear_aux.cpp.o
@@ -256,7 +256,7 @@ linear_aux.o: linear_aux.cpp.o
 
 # target to build an object file
 linear_aux.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_aux.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_aux.cpp.o
 .PHONY : linear_aux.cpp.o
 
 linear_aux.i: linear_aux.cpp.i
@@ -265,7 +265,7 @@ linear_aux.i: linear_aux.cpp.i
 
 # target to preprocess a source file
 linear_aux.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_aux.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_aux.cpp.i
 .PHONY : linear_aux.cpp.i
 
 linear_aux.s: linear_aux.cpp.s
@@ -274,8 +274,62 @@ linear_aux.s: linear_aux.cpp.s
 
 # target to generate assembly for a file
 linear_aux.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_aux.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_aux.cpp.s
 .PHONY : linear_aux.cpp.s
+
+linear_diff_operators.o: linear_diff_operators.cpp.o
+
+.PHONY : linear_diff_operators.o
+
+# target to build an object file
+linear_diff_operators.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_diff_operators.cpp.o
+.PHONY : linear_diff_operators.cpp.o
+
+linear_diff_operators.i: linear_diff_operators.cpp.i
+
+.PHONY : linear_diff_operators.i
+
+# target to preprocess a source file
+linear_diff_operators.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_diff_operators.cpp.i
+.PHONY : linear_diff_operators.cpp.i
+
+linear_diff_operators.s: linear_diff_operators.cpp.s
+
+.PHONY : linear_diff_operators.s
+
+# target to generate assembly for a file
+linear_diff_operators.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_diff_operators.cpp.s
+.PHONY : linear_diff_operators.cpp.s
+
+linear_fill_diff_matrices.o: linear_fill_diff_matrices.cpp.o
+
+.PHONY : linear_fill_diff_matrices.o
+
+# target to build an object file
+linear_fill_diff_matrices.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_fill_diff_matrices.cpp.o
+.PHONY : linear_fill_diff_matrices.cpp.o
+
+linear_fill_diff_matrices.i: linear_fill_diff_matrices.cpp.i
+
+.PHONY : linear_fill_diff_matrices.i
+
+# target to preprocess a source file
+linear_fill_diff_matrices.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_fill_diff_matrices.cpp.i
+.PHONY : linear_fill_diff_matrices.cpp.i
+
+linear_fill_diff_matrices.s: linear_fill_diff_matrices.cpp.s
+
+.PHONY : linear_fill_diff_matrices.s
+
+# target to generate assembly for a file
+linear_fill_diff_matrices.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_fill_diff_matrices.cpp.s
+.PHONY : linear_fill_diff_matrices.cpp.s
 
 linear_vect_to_field.o: linear_vect_to_field.cpp.o
 
@@ -283,7 +337,7 @@ linear_vect_to_field.o: linear_vect_to_field.cpp.o
 
 # target to build an object file
 linear_vect_to_field.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_vect_to_field.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_vect_to_field.cpp.o
 .PHONY : linear_vect_to_field.cpp.o
 
 linear_vect_to_field.i: linear_vect_to_field.cpp.i
@@ -292,7 +346,7 @@ linear_vect_to_field.i: linear_vect_to_field.cpp.i
 
 # target to preprocess a source file
 linear_vect_to_field.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_vect_to_field.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_vect_to_field.cpp.i
 .PHONY : linear_vect_to_field.cpp.i
 
 linear_vect_to_field.s: linear_vect_to_field.cpp.s
@@ -301,7 +355,7 @@ linear_vect_to_field.s: linear_vect_to_field.cpp.s
 
 # target to generate assembly for a file
 linear_vect_to_field.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/linear_vect_to_field.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_vect_to_field.cpp.s
 .PHONY : linear_vect_to_field.cpp.s
 
 move.o: move.cpp.o
@@ -310,7 +364,7 @@ move.o: move.cpp.o
 
 # target to build an object file
 move.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/move.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/move.cpp.o
 .PHONY : move.cpp.o
 
 move.i: move.cpp.i
@@ -319,7 +373,7 @@ move.i: move.cpp.i
 
 # target to preprocess a source file
 move.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/move.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/move.cpp.i
 .PHONY : move.cpp.i
 
 move.s: move.cpp.s
@@ -328,7 +382,7 @@ move.s: move.cpp.s
 
 # target to generate assembly for a file
 move.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/move.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/move.cpp.s
 .PHONY : move.cpp.s
 
 number.o: number.cpp.o
@@ -337,7 +391,7 @@ number.o: number.cpp.o
 
 # target to build an object file
 number.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/number.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/number.cpp.o
 .PHONY : number.cpp.o
 
 number.i: number.cpp.i
@@ -346,7 +400,7 @@ number.i: number.cpp.i
 
 # target to preprocess a source file
 number.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/number.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/number.cpp.i
 .PHONY : number.cpp.i
 
 number.s: number.cpp.s
@@ -355,7 +409,7 @@ number.s: number.cpp.s
 
 # target to generate assembly for a file
 number.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/number.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/number.cpp.s
 .PHONY : number.cpp.s
 
 volumes.o: volumes.cpp.o
@@ -364,7 +418,7 @@ volumes.o: volumes.cpp.o
 
 # target to build an object file
 volumes.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/volumes.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/volumes.cpp.o
 .PHONY : volumes.cpp.o
 
 volumes.i: volumes.cpp.i
@@ -373,7 +427,7 @@ volumes.i: volumes.cpp.i
 
 # target to preprocess a source file
 volumes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/volumes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/volumes.cpp.i
 .PHONY : volumes.cpp.i
 
 volumes.s: volumes.cpp.s
@@ -382,7 +436,7 @@ volumes.s: volumes.cpp.s
 
 # target to generate assembly for a file
 volumes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_pFEM.dir/build.make CMakeFiles/c_pFEM.dir/volumes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/volumes.cpp.s
 .PHONY : volumes.cpp.s
 
 # Help Target
@@ -393,7 +447,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... c_pFEM"
+	@echo "... cpFEM"
 	@echo "... cpFEM.o"
 	@echo "... cpFEM.i"
 	@echo "... cpFEM.s"
@@ -409,6 +463,12 @@ help:
 	@echo "... linear_aux.o"
 	@echo "... linear_aux.i"
 	@echo "... linear_aux.s"
+	@echo "... linear_diff_operators.o"
+	@echo "... linear_diff_operators.i"
+	@echo "... linear_diff_operators.s"
+	@echo "... linear_fill_diff_matrices.o"
+	@echo "... linear_fill_diff_matrices.i"
+	@echo "... linear_fill_diff_matrices.s"
 	@echo "... linear_vect_to_field.o"
 	@echo "... linear_vect_to_field.i"
 	@echo "... linear_vect_to_field.s"
