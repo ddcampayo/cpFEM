@@ -29,8 +29,8 @@ void linear::p_equation(const FT dt ) {
   //  Laplacian as div of grad :
 #ifdef PPE_DIV_SOURCE
 
-  //  VectorXd divUstar  =  divergence( vfield_list::Ustar );
-  VectorXd divUstar  =  divergence( vfield_list::U0 );
+  VectorXd divUstar  =  divergence( vfield_list::Ustar );
+  //VectorXd divUstar  =  divergence( vfield_list::U0 );
 
   VectorXd p =  LL_solver.solve( divUstar  );
 

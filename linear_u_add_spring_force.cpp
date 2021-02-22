@@ -53,6 +53,6 @@ void linear::u_add_spring_force( const FT kdt ) {
   U_x = Ustar_x.array() - kdt * disp_x.array();
   U_y = Ustar_y.array() - kdt * disp_y.array();
 
-  vctrs_to_vfield( U_x, U_y , vfield_list::U );
+  vctrs_to_vfield( U_x, U_y , vfield_list::Ustar );
 
 }

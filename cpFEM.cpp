@@ -164,15 +164,16 @@ int main() {
 
       algebra.fill_diff_matrices();
 
-      algebra.p_equation( dt2 ); 
-
-      algebra.u_add_press_grad( dt2 );
-
       if(springy) {
         algebra.w_equation(); 
         copy_weights( T ) ;
 	algebra.u_add_spring_force( spring*dt );
       }
+      
+      algebra.p_equation( dt2 ); 
+
+      algebra.u_add_press_grad( dt2 );
+
 
       if( displ < inner_tol ) break;
 
