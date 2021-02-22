@@ -46,7 +46,7 @@ void linear::fill_diff_matrices( void ) {
     Point p3 = v3->point().point() ;
     
     Vertex_handle v1 = f->vertex( (i3+1) % 3);
-    Point p1 = v1->point().point() ;
+    //    Point p1 = v1->point().point() ;
 
     Vertex_handle v3p = T.mirror_vertex( f , i3 );
     Point p3p = v3p->point().point() ;
@@ -75,7 +75,7 @@ void linear::fill_diff_matrices( void ) {
 
     // CGAL::Orientation ori = CGAL::orientation(  v_1_3p , v_3p_3 );
     // if( ori == CGAL::RIGHT_TURN ) v_3p_3_perp = -v_3p_3_perp;
-    
+
     Vector_2 DDij = v_3p_3_perp / 6.0 ;
     Vector_2 DDji = -DDij;
 
