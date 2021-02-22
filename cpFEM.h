@@ -98,12 +98,12 @@ void move_weights( Triangulation& Tp );
 FT L2_vel_Gresho( Triangulation& T) ;
 FT kinetic_E( Triangulation& T) ;
 
+void update_half_velocity(  Triangulation& Tp );
 
 // FT lloyds(Triangulation& T) ;
 
 
 // 
-// void update_full_vel(  Triangulation& Tp );
 // FT move_from_centroid(Triangulation& T, const FT dt );
 
 // void set_vels_rotating(Triangulation& T);

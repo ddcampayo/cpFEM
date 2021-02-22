@@ -30,7 +30,7 @@ class linear {
 
   void fill_diff_matrices();
 
-  void w_equation(  const FT dt = 0 );
+  void w_equation( void );
   void p_equation(const FT dt  );
 
   void u_star( void );

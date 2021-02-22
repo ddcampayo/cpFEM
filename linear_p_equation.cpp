@@ -1,5 +1,4 @@
-#define PRESSURE_PPE_DIV_SOURCE
-
+#define PPE_DIV_SOURCE
 
 //#include"pParticles.h"
 #include"linear.h"
@@ -28,9 +27,10 @@ void linear::p_equation(const FT dt ) {
   
   // B
   //  Laplacian as div of grad :
-#ifdef PRESSURE_PPE_DIV_SOURCE
+#ifdef PPE_DIV_SOURCE
 
-  VectorXd divUstar  =  divergence( vfield_list::Ustar );
+  //  VectorXd divUstar  =  divergence( vfield_list::Ustar );
+  VectorXd divUstar  =  divergence( vfield_list::U0 );
 
   VectorXd p =  LL_solver.solve( divUstar  );
 
@@ -89,13 +89,9 @@ void linear::u_add_press_grad( const FT dt ) {
 
   VectorXd U_x, U_y;
 
-
   U_x = Ustar_x.array() - dt * gradPx.array() / vol.array()  ;
   U_y = Ustar_y.array() - dt * gradPy.array() / vol.array() ;
   
   vctrs_to_vfield( U_x, U_y , vfield_list::U );
 
 }
-
-
-

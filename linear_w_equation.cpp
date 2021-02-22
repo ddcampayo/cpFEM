@@ -7,7 +7,7 @@
 // Iterative process to adjust weights so that
 // the weighted Voronoi diagram has constant volumes
 
-void linear::w_equation( const FT dt ) {
+void linear::w_equation( void ) {
 
   //  cout << "Equalizing volumes " << endl;
   

@@ -210,7 +210,7 @@ FT kinetic_E( Triangulation& T) {
       vit++) {
 
     Vector_2 U  = vit->U.val();
-    FT       v  = vit->Vvol.val();
+    FT       v  = vit->Dvol.val();
     TT += v * U.squared_length();
   }
 

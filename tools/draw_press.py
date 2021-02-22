@@ -39,9 +39,9 @@ x=dt[:,0]; y=dt[:,1];
 w=dt[:,4];
 #    vx=dt[:,5]; vym=dt[:,6];
 
-#p=dt[:,10] / Delta_t**2
+p=dt[:,10] / Delta_t**2
 
-p=dt[:,11]  # p0
+#p=dt[:,11]  # p0
 
 #  s=dt[:,10]
 #  I=dt[:,11];
@@ -57,7 +57,7 @@ rm = np.argmax(r)
 
 p -= p[ rm ] #  np.min( p )
 
-plt.plot( x , p , 'o' )
+plt.plot( r , p , 'o' )
 
 def pp(r) : # analytic solution for Gresho's vortex pressure
     r0 = 0.2

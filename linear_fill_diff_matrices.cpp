@@ -56,13 +56,11 @@ void linear::fill_diff_matrices( void ) {
     // negative right angle turn
     Vector_2 v_3p_3_perp = Vector_2( v_3p_3.y() , -v_3p_3.x() );
 
-    // alt: vector along edge, with modulus equal to the distance of points at both sides
     //           3
     //
-    //    1   ---v-->  2          |v| = l(3,3')
+    //    1   -------  2  
     //
     //          3' 
-    
 
     
     //    Triangle tr( v1->point().point() , v3p->point().point() , v3->point().point() );
@@ -70,12 +68,14 @@ void linear::fill_diff_matrices( void ) {
     //    CGAL::Orientation ori = tr.orientation();
     //    if( ori == CGAL::NEGATIVE ) v33_perp = -v33_perp;
 
+    // // is this check needed?
+    // I don't think so, the orientation remains the same even if
+    // vertex 1 would be on other side of edge (3 & 3' would reverse)
     // Vector_2 v_1_3p = p3p - p1 ;
 
-    // // is this check needed?
     // CGAL::Orientation ori = CGAL::orientation(  v_1_3p , v_3p_3 );
     // if( ori == CGAL::RIGHT_TURN ) v_3p_3_perp = -v_3p_3_perp;
-
+    
     Vector_2 DDij = v_3p_3_perp / 6.0 ;
     Vector_2 DDji = -DDij;
 

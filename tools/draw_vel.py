@@ -49,7 +49,7 @@ rm = np.argmax(r)
 # p -= p[ rm ] #  np.min( p )
 
 #plt.plot( r , v , 'o' )
-plt.plot( x , vx , 'o' )
+plt.plot( r , v , 'o' )
 
 def vel(r) : # analytic solution for Gresho's vortex velocity
     r0 = 0.2

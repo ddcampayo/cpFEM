@@ -21,7 +21,7 @@ int main() {
   const FT  init_tol2 = 1e-3;
 
   const int inner_iters= 10;
-  const FT  inner_tol  = 1e-5;
+  const FT  inner_tol  = 1e-4;
 
   const  FT total_time = 2 * M_PI * 0.2 ; // one whole turn
 
@@ -32,7 +32,7 @@ int main() {
 
   cout << "Creating point cloud" << endl;
 
-  simu.do_perturb(0.1);
+//  simu.do_perturb(0.1);
   create( T , 1.0 );
   number( T );
 
@@ -44,7 +44,7 @@ int main() {
   algebra.copy( sfield_list::Dvol,  sfield_list::Dvol0);
   algebra.copy( sfield_list::Vvol,  sfield_list::Vvol0);
 
-  set_vels_Gresho( T );
+  //  set_vels_Gresho( T );
   
   // // testing .-
    // algebra.test_gradient();
@@ -81,14 +81,10 @@ int main() {
   // return 0;
   //  cout << "Init loop converged in " << iter << " steps " << endl;
   
-  copy_weights( T ) ;
+//  copy_weights( T ) ;
 
   set_vels_Gresho( T );
 
-  volumes( T ); 
-  algebra.copy( sfield_list::Dvol,  sfield_list::Dvol0);
-  algebra.copy( sfield_list::Vvol,  sfield_list::Vvol0);
-  
   FT d0;
   FT dt=0.001;
 
@@ -103,6 +99,10 @@ int main() {
   cin >> spring_to_dt;
   cout << endl << spring_to_dt << endl;
 
+  bool springy = (spring_to_dt > 1e-10); // whether introduce springs or not
+
+  if(!springy) cout << "No spring force will be added" << endl;
+  
   // 31 dt is the value for G&M first simulation,
   // "Beltrami flow in the square"
   FT spring_period = spring_to_dt * dt;
@@ -124,6 +124,7 @@ int main() {
   
   std::ofstream log_file;
   log_file.open("main.log");
+  log_file << " #  step   time   iters   kin_energy   L2_velocity " << endl;
 
   // special first iter.-
   // cout << " First iter, free ";
@@ -140,29 +141,17 @@ int main() {
 
     backup( T );
     
-    //    copy_weights( T ) ;
-    
-    //  volumes( T );
-    //  algebra.fill_Delta();
-
-    //    algebra.reset_s();
-  
     int iter = 1;
-
-//    algebra.fill_Delta_DD();
 
     algebra.u_star( );
 
-    FT displ = 0; // move( T , dt2 , d0 );
-    
+    FT displ = 0;
+ 
     // full-step corrector loop
 
     for ( ; iter <= inner_iters ; iter++) {
 
-      displ = move( T , dt , d0 );
-
-      // frog
-      //      displ = move( T , dt2 , d0 );
+      displ = move( T , dt2 , d0 );
 
       cout
 	<< "********" << endl
@@ -172,95 +161,33 @@ int main() {
 	<< endl ;
 
       volumes( T ); 
-      
+
       algebra.fill_diff_matrices();
 
-      // // whole step, special 1st time
-      // if( simu.current_step() == 1 ){
-      // 	algebra.p_equation( dt2 ); 
-      // 	algebra.u_add_press_grad( dt2/2  );
+      algebra.p_equation( dt2 ); 
 
-      // }  else 
-      // {
-      // 	algebra.p_equation( dt ); 
-      // 	algebra.u_add_press_grad( dt2 );
-      // }
+      algebra.u_add_press_grad( dt2 );
 
-//      algebra.p_equation( dt , true ); 
+      if(springy) {
+        algebra.w_equation(); 
+        copy_weights( T ) ;
+	algebra.u_add_spring_force( spring*dt );
+      }
 
-//      algebra.p_equation( dt ); 
-
-      //frog
-
-      algebra.p_equation( dt ); 
-
-      algebra.u_add_press_grad( dt );//2 );
-
-      algebra.w_equation( dt ); 
-      copy_weights( T ) ;
-
-      algebra.u_add_spring_force( spring*dt );
-
-      // algebra.u_add_press_grad( dt2 );//2 );
-      // algebra.u_add_spring_force( 1.0 / dt2 );
-
-      //      algebra.u_add_spring_force( 1.0 / dt );
-      
-      //      algebra.solve_for_weights();
-
-      
-      //      algebra.solve_for_moments();
-      //      copy_weights( T ) ;
-    
       if( displ < inner_tol ) break;
-
-      ////// testing ...
-      //      backup( T );
-      //algebra.reset_p();
-      //algebra.u_star( );
-      ///////////
-      
-
-      //      algebra.w_equation2();
-      //      volumes( T ); 
 
       
     }
-    //    algebra.u_add_press_grad( dt2 );
-//    draw( T , particle_file     );
-//    draw_diagram( T , diagram_file );
-//    return 0;
-
-//    copy_weights( T ) ;
-
-
-    
-    // algebra.u_add_press_grad( dt );
-    // algebra.u_add_spring_force( 1.0 / dt );
-
-
-    //    algebra.u_add_press_grad( 0 );
-
 
     displ = move( T , dt , d0 );
 
+    update_half_velocity( T );
+
     volumes( T ); 
       
-    //    algebra.fill_Delta_DD();
-    //    algebra.p_equation( dt2 );
-
     cout
       << "Whole step  "
       << " : disp " << displ << endl ;
-
-    //algebra.w_equation();
-    //algebra.solve_for_weights();
-
-    //    volumes( T ); 
-
-    // half-step:
-    //  update_full_vel( T );
-    //    algebra.u_add_press_grad( dt );
 
     draw( T , particle_file     );
     draw_diagram( T , diagram_file );
@@ -268,9 +195,9 @@ int main() {
     log_file
       << simu.current_step() << "  "
       << simu.time() << "  "
-      << " iters = " << iter-1
-      << " T =  " << kinetic_E(T)
-      << " L2_vel =  " << L2_vel_Gresho(T)
+      << iter-1 << " "
+      << kinetic_E(T) << " "
+      << L2_vel_Gresho(T) << " "
       << endl ;
     
   } while ( simu.time() < total_time );
