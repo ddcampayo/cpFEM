@@ -5,10 +5,7 @@
 void linear::divergence(const vfield_list::take from , const sfield_list::take to )
 {
 
-  VectorXd vx, vy;
-  vfield_to_vctrs( from , vx, vy );
-
-  VectorXd div = DDx * vx + DDy*vy;
+  VectorXd div = divergence( from );
 
   vctr_to_field( div , to );
 
@@ -30,7 +27,7 @@ VectorXd linear::divergence(const vfield_list::take from )
   // cout << vx << endl;
 
 
-  return DDx * vx  + DDy * vy ;
+  return DDx * vx + DDy * vy ;
 }
 
 

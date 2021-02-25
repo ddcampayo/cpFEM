@@ -32,7 +32,7 @@ int main() {
 
   cout << "Creating point cloud" << endl;
 
-//  simu.do_perturb(0.1);
+  //  simu.do_perturb(0.1);
   create( T , 1.0 );
   number( T );
 
@@ -167,16 +167,17 @@ int main() {
       if(springy) {
         algebra.w_equation(); 
         copy_weights( T ) ;
-	algebra.u_add_spring_force( spring*dt );
+	volumes( T ); 
+	algebra.fill_diff_matrices();
+	algebra.u_add_spring_force( spring*dt2 );
       }
-      
+ 
       algebra.p_equation( dt2 ); 
 
       algebra.u_add_press_grad( dt2 );
 
 
       if( displ < inner_tol ) break;
-
       
     }
 

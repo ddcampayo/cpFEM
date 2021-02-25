@@ -10,7 +10,10 @@
 // (inf.  change of _Delaunay_ volume of cell i due to change in position of cell j)
 //  , a matrix of vectors, thus stored as DD_ij_x and DD_ij_y
 
-// LL = - DD (1/Dvol) DD^t, involved in Ralphson-Newton methods ( notice the sign )
+// LL = - DD (1/Dvol) DD^t, Laplacian involved in Ralphson-Newton methods ( notice the sign ),
+// as the divergence of the gradient
+
+// stiff_ij = int grad f_i grad f_j, appears in the FEM Laplacian
 
 #include"linear.h"
 
@@ -20,17 +23,12 @@ void linear::fill_diff_matrices( void ) {
 
   //  int n=simu.no_of_points();
 
-  std::vector<triplet>
-    aa, ax, ay, mx, my,
-    ee ,
-    gg ; // , bb ;            // list of non-zeros coefficients
+  std::vector<triplet>   aa, ax, ay, ss;
 
   typedef std::map<int,FT> diag_map;
   diag_map   dd; // diagonal
-  diag_map   dd_g;
-  diag_map   dd_e;
   diag_map   dd_x, dd_y;
-  diag_map   dm_x, dm_y;
+  diag_map   ds;
 
   int N=1;
 
@@ -79,9 +77,39 @@ void linear::fill_diff_matrices( void ) {
     Vector_2 DDij = v_3p_3_perp / 6.0 ;
     Vector_2 DDji = -DDij;
 
-    Vertex_handle vi = v1 ; // f->vertex( (i0+1) % 3);
-    Vertex_handle vj = f->vertex( (i0+2) % 3); // aka v2
+    Vertex_handle v0 = v3;
+    Vertex_handle v2 = f->vertex( (i0+2) % 3); // aka v2
 
+    Point p1 = v1->point().point();
+    Point p2 = v2->point().point();
+    Point p0 = p3;
+    
+
+    FT ll0 = Vector_2( p1 , p2).squared_length();
+    FT ll1 = Vector_2( p2 , p0).squared_length();
+    FT ll2 = Vector_2( p0 , p1).squared_length();
+
+    FT ar = CGAL::area( p0 , p1 , p2);
+
+    Point p0p = p3p;
+
+    FT ll1p = Vector_2( p0p , p2).squared_length();
+    FT ll2p = Vector_2( p1 , p0p).squared_length();
+
+    FT arp = CGAL::area( p0p , p2 , p1);
+
+    FT st_ij =
+      -(ll0 - ll1  - ll2 )/ar /8
+      -(ll0 - ll1p - ll2p)/arp/8;
+
+    // FT st_ii = ll1 /ar /8 + ll1p /arp /8 ;
+    // FT st_jj = ll2 /ar /8 + ll2p /arp /8 ;
+ 
+    
+    Vertex_handle vi = v1 ; // f->vertex( (i0+1) % 3);
+    Vertex_handle vj = v2 ;
+
+    
     int i = vi->idx();
     int j = vj->idx();
 
@@ -118,6 +146,9 @@ void linear::fill_diff_matrices( void ) {
       ax.push_back( triplet( j, i,  DDji.x() ));
       ay.push_back( triplet( j, i,  DDji.y() ));
 
+      ss.push_back( triplet( i, j,  st_ij ));
+      ss.push_back( triplet( j, i,  st_ij ));
+      
     }
 
     // diagonal terms
@@ -125,9 +156,13 @@ void linear::fill_diff_matrices( void ) {
     if (i >= 0 ) {
       dd[ i ]  -= ddelta;
 
+      // this diagonal is 0, but just in case
       dd_x[ i ] -= DDji.x();
       dd_y[ i ] -= DDji.y();
 
+      //      ds[ i ]  += st_ii;
+
+      ds[ i ]  -= st_ij;
     }
 
     if (j >= 0 ) {
@@ -135,6 +170,9 @@ void linear::fill_diff_matrices( void ) {
 
       dd_x[ j ] -= DDij.x();
       dd_y[ j ] -= DDij.y();
+
+      //      ds[ j ]  += st_jj;
+      ds[ j ]  -= st_ij;
 
     }
 
@@ -167,6 +205,15 @@ void linear::fill_diff_matrices( void ) {
     ay.push_back( triplet( i, i,  diagy ));
   }
 
+
+  for( diag_map::const_iterator it = ds.begin(); it != ds.end(); ++it ) {
+    int i    = it->first;
+    FT diag = it->second;
+    ss.push_back( triplet( i, i,  diag ));
+  }
+
+
+  
   Delta.resize( N , N );
   Delta.setFromTriplets(aa.begin(), aa.end());
   // std::cout << " Filled Delta  matrix" << std::endl;
@@ -182,6 +229,10 @@ void linear::fill_diff_matrices( void ) {
   // std::cout << " Filled DDy  matrix" << std::endl;
   // cout << "matrix size " << DDy.rows() << " times " << DDy.cols() << endl;
 
+  stiff.resize( N , N );
+  stiff.setFromTriplets(ss.begin(), ss.end());
+
+  
   // set up solvers .-
   
   VectorXd vol  = field_to_vctr( sfield_list::Dvol ) ;
@@ -204,6 +255,16 @@ void linear::fill_diff_matrices( void ) {
       " matrix\n";
   }
 
+
+  stiff_solver.compute( stiff );
+
+  if(stiff_solver.info()!=Eigen::Success) {
+    std::cout << "Failure decomposing stiffness " << //minus 1
+      " matrix\n";
+  }
+
+
+  
   return;
 
 }

@@ -30,9 +30,10 @@ void linear::p_equation(const FT dt ) {
 #ifdef PPE_DIV_SOURCE
 
   VectorXd divUstar  =  divergence( vfield_list::Ustar );
-  //VectorXd divUstar  =  divergence( vfield_list::U0 );
 
+  // Choice of Laplacian matrix:
   VectorXd p =  LL_solver.solve( divUstar  );
+  //VectorXd p =  stiff_solver.solve( divUstar  );
 
   vctr_to_field( p / dt ,  sfield_list::p ) ;
 
