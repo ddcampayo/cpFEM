@@ -1,4 +1,5 @@
 #define PPE_DIV_SOURCE
+#define STIFF_SOLVER
 
 //#include"pParticles.h"
 #include"linear.h"
@@ -32,8 +33,11 @@ void linear::p_equation(const FT dt ) {
   VectorXd divUstar  =  divergence( vfield_list::Ustar );
 
   // Choice of Laplacian matrix:
+#ifdef STIFF_SOLVER
+  VectorXd p =  stiff_solver.solve( divUstar  );
+#else
   VectorXd p =  LL_solver.solve( divUstar  );
-  //VectorXd p =  stiff_solver.solve( divUstar  );
+#endif
 
   vctr_to_field( p / dt ,  sfield_list::p ) ;
 
@@ -59,13 +63,21 @@ void linear::p_equation(const FT dt ) {
        << " rel Dvol std dev: " << sqrt( Dvol_sigma ) / Dvol_mean 
        << endl;
 
+#ifdef STIFF_SOLVER
+  VectorXd p =  stiff_solver.solve( divUstar  );
+#else
+  VectorXd p =  LL_solver.solve( divUstar  );
+#endif
+
+  // Choices:
+  // C0: stiff Laplacian
+  //  VectorXd p  =  stiff_solver.solve( Dvol );
   // C1: LL Laplacian
-  //  VectorXd Dp  =  LL_solver.solve( Dvol );
-
+  //  VectorXd p  =  LL_solver.solve( Dvol );
   // C2: Delta Laplacian
-  VectorXd Dp =  Delta_solver.solve( Dvol );
+  //VectorXd Dp =  Delta_solver.solve( Dvol );
 
-  vctr_to_field( -0.5 * Dp / ( ddt * ddt) , sfield_list::p  ) ;
+  vctr_to_field( p / ( dt * dt) , sfield_list::p  ) ;
 
 
   

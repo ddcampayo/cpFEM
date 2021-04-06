@@ -94,18 +94,22 @@ int main() {
 
   simu.set_dt( dt );
 
-  FT spring_to_dt;
-  cout << "Spring period / dt  = ";
-  cin >> spring_to_dt;
-  cout << endl << spring_to_dt << endl;
+//  FT spring_to_dt;
+//  cout << "Spring period / dt  = ";
+//  cin >> spring_to_dt;
+//  cout << endl << spring_to_dt << endl;
 
-  bool springy = (spring_to_dt > 1e-10); // whether introduce springs or not
-
-  if(!springy) cout << "No spring force will be added" << endl;
-  
   // 31 dt is the value for G&M first simulation,
   // "Beltrami flow in the square"
-  FT spring_period = spring_to_dt * dt;
+  FT spring_period;// = spring_to_dt * dt;
+  cout << "Spring period  = ";
+  cin >> spring_period;
+  cout << endl << spring_period << "  =  " << spring_period/dt << " dt" << endl;
+
+  bool springy = (spring_period > 1e-10); // whether introduce springs or not
+  if(!springy) cout << "No spring force will be added" << endl;
+  
+
   //  FT spring_period = 80 * dt;
   FT omega = 2 * M_PI /  spring_period ;
 
