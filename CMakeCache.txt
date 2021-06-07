@@ -292,7 +292,7 @@ Boost_DEBUG-ADVANCED:INTERNAL=1
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CGAL_Boost_USE_STATIC_LIBS
 CGAL_Boost_USE_STATIC_LIBS-ADVANCED:INTERNAL=1
-CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM
+CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM
 //Directory containing the GraphicsView package
 CGAL_GRAPHICSVIEW_PACKAGE_DIR:INTERNAL=/usr/include/CGAL/
 //CGAL library is configured to use GMP
@@ -312,9 +312,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/daniel/cpFEM
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=19
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=20
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -417,7 +417,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.19
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.20
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG

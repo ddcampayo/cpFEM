@@ -4,7 +4,7 @@
 #include"simu.h"
 
 
-
+// Ustar = U0, but viscosity would appear here
 void linear::u_star( void ) {
   VectorXd usx, usy;
   

@@ -1,4 +1,4 @@
-#define PPE_DIV_SOURCE
+//#define PPE_DIV_SOURCE
 #define STIFF_SOLVER
 
 //#include"pParticles.h"
@@ -64,9 +64,9 @@ void linear::p_equation(const FT dt ) {
        << endl;
 
 #ifdef STIFF_SOLVER
-  VectorXd p =  stiff_solver.solve( divUstar  );
+  VectorXd p =  stiff_solver.solve( Dvol  );
 #else
-  VectorXd p =  LL_solver.solve( divUstar  );
+  VectorXd p =  LL_solver.solve( Dvol  );
 #endif
 
   // Choices:
@@ -78,8 +78,6 @@ void linear::p_equation(const FT dt ) {
   //VectorXd Dp =  Delta_solver.solve( Dvol );
 
   vctr_to_field( p / ( dt * dt) , sfield_list::p  ) ;
-
-
   
 #endif
 
