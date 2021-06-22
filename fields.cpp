@@ -176,9 +176,13 @@ void set_vels_Gresho(Triangulation& T) {
 }
 
 
+
+
+
 FT L2_vel_Gresho( Triangulation& T) {
 
-  FT L2=0;
+  FT L2 = 0 , L2_0 = 0;
+
   int nn=0;
   for(F_v_it vit=T.finite_vertices_begin();
       vit != T.finite_vertices_end();
@@ -189,12 +193,13 @@ FT L2_vel_Gresho( Triangulation& T) {
 
     Vector_2 U0 = Gresho_v( x , y) ;
     Vector_2 U  = vit->U.val();
-    L2 += ( U - U0 ).squared_length();
+    L2   += std::sqrt( ( U - U0 ).squared_length() );
+    L2_0 += std::sqrt( U0.squared_length() );
     ++nn;
     
   }
 
-  return L2 / nn;
+  return L2 /L2_0;  // / nn;
 }
 
 
@@ -214,9 +219,8 @@ FT kinetic_E( Triangulation& T) {
     TT += v * U.squared_length();
   }
 
-  return TT;
+  return TT/2;
 }
-
 
 
 

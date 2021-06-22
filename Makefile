@@ -393,6 +393,30 @@ linear_w_equation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/linear_w_equation.cpp.s
 .PHONY : linear_w_equation.cpp.s
 
+lloyds.o: lloyds.cpp.o
+.PHONY : lloyds.o
+
+# target to build an object file
+lloyds.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/lloyds.cpp.o
+.PHONY : lloyds.cpp.o
+
+lloyds.i: lloyds.cpp.i
+.PHONY : lloyds.i
+
+# target to preprocess a source file
+lloyds.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/lloyds.cpp.i
+.PHONY : lloyds.cpp.i
+
+lloyds.s: lloyds.cpp.s
+.PHONY : lloyds.s
+
+# target to generate assembly for a file
+lloyds.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpFEM.dir/build.make CMakeFiles/cpFEM.dir/lloyds.cpp.s
+.PHONY : lloyds.cpp.s
+
 move.o: move.cpp.o
 .PHONY : move.o
 
@@ -507,6 +531,9 @@ help:
 	@echo "... linear_w_equation.o"
 	@echo "... linear_w_equation.i"
 	@echo "... linear_w_equation.s"
+	@echo "... lloyds.o"
+	@echo "... lloyds.i"
+	@echo "... lloyds.s"
 	@echo "... move.o"
 	@echo "... move.i"
 	@echo "... move.s"

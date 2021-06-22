@@ -1,4 +1,4 @@
-//#define PPE_DIV_SOURCE
+#define PPE_DIV_SOURCE
 #define STIFF_SOLVER
 
 //#include"pParticles.h"

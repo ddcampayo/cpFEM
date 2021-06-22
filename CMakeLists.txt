@@ -75,6 +75,7 @@ add_executable( cpFEM
 	move.cpp
 	linear_u_add_spring_force.cpp
 	linear_w_equation.cpp
+	lloyds.cpp
 )
 
 

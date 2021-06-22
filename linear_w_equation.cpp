@@ -19,7 +19,7 @@ void linear::w_equation( void ) {
   //  target_vol.setConstant( target_vol_val );
   
   const int max_iter = 100;
-  const FT threshold = 1e-8;
+  const FT threshold = 1e-10;
   const FT mixing = 1; // 1: only new iter; 0: only old
 
   FT diff , vol_sigma  , meanV ;
@@ -46,14 +46,14 @@ void linear::w_equation( void ) {
     // cout << "  vol variance : " << vol_sigma << endl;
 
     // target volume: all cells equal volume
-    // FT target_v = simu.meanV();
-    // VectorXd Dvol = mixing * ( target_v  - vol.array()  ) ;
-    // diff = Dvol.norm() / vol.norm(); // relative!
+    FT target_v = simu.meanV();
+    VectorXd Dvol = mixing * ( target_v  - vol.array()  ) ;
+    diff = Dvol.norm() / vol.norm(); // relative!
 
     
-    // target volume: each cell its own
-    VectorXd Dvol = mixing * ( vol0  - vol ) ;
-    diff = (vol - vol0 ).norm() / vol.norm(); // relative!
+    // // target volume: each cell its own
+    // VectorXd Dvol = mixing * ( vol0  - vol ) ;
+    // diff = (vol - vol0 ).norm() / vol.norm(); // relative!
 
     cout << "Volumes rel diff: " << diff<< endl;
 

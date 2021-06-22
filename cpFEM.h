@@ -86,6 +86,7 @@ void draw_diagram(Triangulation& T,  const std::string file_name  ) ;
 void create(Triangulation& Tp, const FT& LL) ;
 void volumes(Triangulation& T) ;
 void number(Triangulation& T);
+Vector_2 Gresho_v( const FT x, const FT y);
 void set_vels_Gresho(Triangulation& T) ;
 void backup( Triangulation& Tp );
 
@@ -100,7 +101,7 @@ FT kinetic_E( Triangulation& T) ;
 
 void update_half_velocity(  Triangulation& Tp );
 
-// FT lloyds(Triangulation& T) ;
+FT lloyds(Triangulation& T) ;
 
 
 // 

@@ -8,7 +8,7 @@ void create(Triangulation& T, const FT& LL) {
 
   typedef CGAL::Creator_uniform_2<FT,Point> Creator;
 
-  int Nb = 39; //simu_N_side() ;
+  int Nb = 49; //simu_N_side() ;
   typedef std::vector<Point> vctP;
   vctP points;
 
@@ -23,14 +23,35 @@ void create(Triangulation& T, const FT& LL) {
   FT side    = LL-2*spacing;
 
   points_on_square_grid_2(side/2.0, N, std::back_inserter(points),Creator());;
-
+	
   //  Vertex_handle v0 = T.insert( wPoint( Point(0,1) ,  w0 ) );
 
+
   if(simu.perturb()) {
-    CGAL::perturb_points_2(
-			   points.begin(), points.end(),
-			   simu.pert_rel()* spacing );
-    cout << "each particle perturbed about " << simu.pert_rel()* spacing  << endl;
+  
+    // perturbation with some velocity field
+
+    for( vctP::iterator vv= points.begin() ;
+	 vv != points.end() ;
+	 vv++) {
+      Point p = *vv;
+
+      FT x=p.x();    FT y=p.y();
+
+      p+= simu.pert_rel()* spacing * Gresho_v( x, y);
+
+      *vv = p;
+
+    }
+
+    cout << "each particle perturbed about " << simu.pert_rel()   << endl;
+
+  // // random perturbation
+  
+  //   CGAL::perturb_points_2(
+  // 			   points.begin(), points.end(),
+  // 			   simu.pert_rel()* spacing );
+  //  cout << "each particle perturbed about " << simu.pert_rel()* spacing  << endl;
   }
 
   cout << "Inserting interior points" << endl;

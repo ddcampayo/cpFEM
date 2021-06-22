@@ -17,13 +17,17 @@ int main() {
 
   // TODO: read parameter file
   
-  const int init_iters = 0;
-  const FT  init_tol2 = 1e-3;
+  const int init_iters = 5000;
+  const FT  init_tol2 = 1e-5;
 
   const int inner_iters= 10;
   const FT  inner_tol  = 1e-5;
 
-  const  FT total_time = 2 * M_PI * 0.2 ; // one whole turn
+  const  FT turn_time = 2 * M_PI * 0.2 ; // one whole turn
+  
+  //  const  FT total_time = turn_time; // once
+
+  const  FT total_time = 2 * turn_time; // twice
 
   const std::string particle_file("particles.dat");
   const std::string diagram_file("diagram.dat");
@@ -32,7 +36,7 @@ int main() {
 
   cout << "Creating point cloud" << endl;
 
-  //  simu.do_perturb(0.1);
+  simu.do_perturb(1e-3);
   create( T , 1.0 );
   number( T );
 
@@ -57,32 +61,35 @@ int main() {
 
   // Init loop!
   
-  // int iter=1;
+  int iter=1;
 
-  // for( ; iter < init_iters ; ++iter) {
+  for( ; iter <= init_iters ; ++iter) {
   
-  //   volumes( T ); 
+    //    algebra.w_equation();
 
-  //   copy_weights( T ) ;
+    volumes( T ); 
 
-  //   //    algebra.solve_for_weights();
+    // copy_weights( T ) ;
 
-  //   FT dd = lloyds( T ) ;
+     FT dd = lloyds( T ) ;
 
-  //   cout << " init loop , iter " << iter << " dd = " << dd << endl;
-  //   if( dd < init_tol2) break;
+     cout << " init loop , iter " << iter << " dd = " << dd << endl;
+     if( dd < init_tol2) break;
 
-  // }
+  }
 
-  // volumes( T ); 
+  volumes( T );
+  //  algebra.w_equation();
+  copy_weights( T ) ;
+
+
   // simu.set_dt( 0 );  
   // draw( T , particle_file     );
   // draw_diagram( T , diagram_file );  
   // return 0;
-  //  cout << "Init loop converged in " << iter << " steps " << endl;
-  
-//  copy_weights( T ) ;
 
+  cout << "Init loop converged in " << iter << " steps " << endl;
+  
   set_vels_Gresho( T );
 
   FT d0;

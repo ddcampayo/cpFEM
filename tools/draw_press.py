@@ -38,11 +38,7 @@ x=dt[:,0]; y=dt[:,1];
 #    vol=dt[:,3]
 w=dt[:,4];
 #    vx=dt[:,5]; vym=dt[:,6];
-
 p=dt[:,10] / Delta_t**2
-
-#p=dt[:,11]  # p0
-
 #  s=dt[:,10]
 #  I=dt[:,11];
 
@@ -73,6 +69,10 @@ v_pp = np.vectorize( pp )
 rr = np.linspace( 0 , max(r) , 200 )
 plt.plot( rr , v_pp(rr)  )
 
+plt.xlabel(r'$r$')
+plt.ylabel(r'$p/\rho$')
+
+
 #plt.plot( r , w , 'x' )
    
 #plt.xlim([-LL/2.0 , LL/2.0 ])
@@ -81,6 +81,6 @@ plt.plot( rr , v_pp(rr)  )
 
 #print( 'step no ' + n )
 
-plt.savefig( 'pressure_' + n)
+plt.savefig( 'pressure_' + n + '.png')
 plt.show()
 
