@@ -24,7 +24,7 @@ BUILD_TESTING:BOOL=OFF
 Boost_DEBUG:BOOL=OFF
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/usr/lib64/cmake/Boost-1.75.0
+Boost_DIR:PATH=/usr/lib64/cmake/Boost-1.76.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/usr/include
@@ -273,10 +273,13 @@ MPFR_LIBRARIES_DIR:FILEPATH=/usr/lib
 SS_LIB:FILEPATH=/usr/lib/libsuitesparseconfig.so
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/usr/lib64/cmake/boost_headers-1.75.0
+boost_headers_DIR:PATH=/usr/lib64/cmake/boost_headers-1.76.0
 
 //Value Computed by CMake
 pPart_BINARY_DIR:STATIC=/home/daniel/cpFEM
+
+//Value Computed by CMake
+pPart_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 pPart_SOURCE_DIR:STATIC=/home/daniel/cpFEM
@@ -292,7 +295,7 @@ Boost_DEBUG-ADVANCED:INTERNAL=1
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CGAL_Boost_USE_STATIC_LIBS
 CGAL_Boost_USE_STATIC_LIBS-ADVANCED:INTERNAL=1
-CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM
+CGAL_EXECUTABLE_TARGETS:INTERNAL=c_pFEM;c_pFEM;c_pFEM;c_pFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM;cpFEM
 //Directory containing the GraphicsView package
 CGAL_GRAPHICSVIEW_PACKAGE_DIR:INTERNAL=/usr/include/CGAL/
 //CGAL library is configured to use GMP
@@ -312,9 +315,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/daniel/cpFEM
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=20
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=21
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -417,7 +420,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.20
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.21
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -449,9 +452,9 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib64/cmake/Boost-1.75.0/BoostConfig.cmake][c ][v1.75.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib64/cmake/Boost-1.76.0/BoostConfig.cmake][c ][v1.76.0()]
 //Details about finding Eigen3
-FIND_PACKAGE_MESSAGE_DETAILS_Eigen3:INTERNAL=[/usr/include/eigen3][v3.3.9(3.1.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Eigen3:INTERNAL=[/usr/include/eigen3][v3.4.0(3.1.0)]
 //Details about finding GMP
 FIND_PACKAGE_MESSAGE_DETAILS_GMP:INTERNAL=[/usr/lib/libgmp.so][/usr/include][v()]
 //Details about finding MPFR

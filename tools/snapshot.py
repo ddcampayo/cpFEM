@@ -16,7 +16,8 @@ import glob
 if(len(sys.argv) == 1) :
     init_t = 0
 else:
-    init_t = int( sys.argv[1] )
+    #init_t = int( sys.argv[1] )
+    init_t = sys.argv[1]
 
 #import pylab as pl
 

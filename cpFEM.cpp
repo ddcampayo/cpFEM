@@ -17,8 +17,8 @@ int main() {
 
   // TODO: read parameter file
   
-  const int init_iters = 5000;
-  const FT  init_tol2 = 1e-5;
+  const int init_iters = 1000;
+  const FT  init_tol2 = 1e-6;
 
   const int inner_iters= 10;
   const FT  inner_tol  = 1e-5;
@@ -65,11 +65,10 @@ int main() {
 
   for( ; iter <= init_iters ; ++iter) {
   
-    //    algebra.w_equation();
+    algebra.w_equation();
 
-    volumes( T ); 
-
-    // copy_weights( T ) ;
+//    volumes( T ); 
+//    copy_weights( T ) ;
 
      FT dd = lloyds( T ) ;
 
@@ -176,7 +175,7 @@ int main() {
       algebra.fill_diff_matrices();
 
       if(springy) {
-        algebra.w_equation(); 
+	algebra.w_equation(); 
         copy_weights( T ) ;
 	volumes( T ); 
 	algebra.fill_diff_matrices();
@@ -186,7 +185,6 @@ int main() {
       algebra.p_equation( dt2 ); 
 
       algebra.u_add_press_grad( dt2 );
-
 
       if( displ < inner_tol ) break;
       

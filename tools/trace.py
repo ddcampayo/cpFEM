@@ -40,7 +40,7 @@ for time in times:
 
     #w=dt[:,4];
     #    vx=dt[:,5]; vym=dt[:,6];
-    p=dt[:,9]
+    p=dt[:,10]
     #  s=dt[:,10]
     #  I=dt[:,11];
 
